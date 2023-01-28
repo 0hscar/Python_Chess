@@ -22,6 +22,14 @@ def load_images():
     
     return pieces_images
 
+def draw_board(screen):
+    for row in range(8):
+        for col in range(8):
+            if (row + col) % 2 == 0:
+                color = (255, 255, 255)
+            else:
+                color = (128, 128, 128)
+            pygame.draw.rect(screen, color, (col * 100, row * 100, 100, 100))
 
 def main():
     # print('Hello World!')
@@ -76,15 +84,23 @@ def main():
     # black_king.health = 0
     # print(black_king.health)
     
+    board = [[0 for x in range(8)] for y in range(8)]
+    
+
+    print(board[1][1])
+    
+    board[0][0] = {'50,50': black_rooks.get('black_rook_1').type}
+    
+    
+    
+    # print(board[1])
+    
+    for s in board:
+        print(s)
+    
 
     # Draw the chess board
-    for row in range(8):
-        for col in range(8):
-            if (row + col) % 2 == 0:
-                color = (255, 255, 255)
-            else:
-                color = (128, 128, 128)
-            pygame.draw.rect(screen, color, (col * 100, row * 100, 100, 100))
+    draw_board(screen)
 
     
     # square + 20
